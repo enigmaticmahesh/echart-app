@@ -1,3 +1,4 @@
+// 2D array representing the values of x and y axes
 export const scatterChartData = [
     [5.64, 1.04],
     [4.38, 1.05],
