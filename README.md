@@ -12,7 +12,7 @@ It uses data collected from [here](https://archive.ics.uci.edu/ml/datasets/wine)
 
 ### ScatterChart
 
-![ScatterChart](/repo_images/ScatterCahrt.png)
+![ScatterChart](/repo_images/ScatterChart.png)
 
 ### BarChart
 
