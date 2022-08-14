@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react";
-import * as Echarts from "echarts";
-import "./BarChart.css";
+import React from "react";
+import ReactECharts from "echarts-for-react";
+import { EChartOption } from "echarts";
 import { getBarData } from "../data";
 
 type Props = {};
 
-const option: Echarts.EChartOption = {
+const option: EChartOption = {
   xAxis: {
     type: "category",
     name: "Alchohol",
@@ -33,24 +33,7 @@ const option: Echarts.EChartOption = {
 };
 
 const BarChart = (props: Props) => {
-  // useRef is used to get the element where we can render the chart
-  const barChartContainer = useRef(null);
-
-  useEffect(() => {
-    // Non-null assertion operator is used to let ts know that it won't be null
-    const barChart = Echarts.init(barChartContainer.current!);
-    barChart.setOption(option);
-    // As page reloads, the Echart instance should dispose
-    return () => {
-      barChart.dispose();
-    };
-  }, []);
-
-  return (
-    <div>
-      <div id="BAR_CHART" ref={barChartContainer}></div>
-    </div>
-  );
+  return <ReactECharts option={option} />;
 };
 
 export default BarChart;

@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react";
-import * as Echarts from "echarts";
-import "./ScatterChart.css";
+import React from "react";
+import ReactECharts from "echarts-for-react";
+import { EChartOption } from "echarts";
 import { scatterChartData } from "../data";
 
 type Props = {};
 
-const option: Echarts.EChartOption = {
+const option: EChartOption = {
   xAxis: {
     name: "Color Intensity",
     nameLocation: "center",
@@ -32,18 +32,5 @@ const option: Echarts.EChartOption = {
 };
 
 export default function ScatterChart(props: Props) {
-  const scatterChartContainer = useRef(null);
-
-  useEffect(() => {
-    const sactterChart = Echarts.init(scatterChartContainer.current!);
-    sactterChart.setOption(option);
-    return () => {
-      sactterChart.dispose();
-    };
-  }, []);
-  return (
-    <div>
-      <div id="SCATTER_CHART" ref={scatterChartContainer}></div>
-    </div>
-  );
+  return <ReactECharts option={option} />;
 }
