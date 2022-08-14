@@ -1,3 +1,19 @@
+# Echart App
+
+Simple app which uses [Echarts](https://echarts.apache.org/en/index.html) to render 2 Charts:
+
+- BarChart
+- ScatterChart
+
+It uses data collected from [here](https://archive.ics.uci.edu/ml/datasets/wine) which is a combination of the following data files:
+
+- [Data](https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data)
+- [Names](https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.names)
+
+### ScatterChart
+
+![ScatterChart](/repo_images/ScatterCahrt.png)
+
 ### BarChart
 
 ![BarChart](/repo_images/BarChart.png)
