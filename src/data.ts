@@ -364,32 +364,22 @@ const malicAcidData = [
 ]
 
 export function getBarData() {
-    const aggregatedData: any = {};
-    // Counting the Alchohol with same class AND
-    // Accumulating the Malic acid values for the same class Alchohol
-    malicAcidData.map((item) => {
-        if (aggregatedData[item[0]] !== undefined) {
-            aggregatedData[item[0]].count += 1;
-            aggregatedData[item[0]].acid.push(item[1]);
-        } else {
-            aggregatedData[item[0]] = {
-                count: 1,
-                acid: [item[1]],
-            };
-        }
-        return item;
-    });
+    type AggData = {
+        [key: string | number]: Array<number>
+    };
 
-    const barData = [];
-    // Calculating the average AND
-    // Formatting data for the Chart
-    for (const [key, value] of Object.entries(aggregatedData)) {
-        aggregatedData[key]["avg"] = (value as any)?.acid.reduce(
-            (acc: any, curr: any) => acc + curr,
-            0
-        ) / (value as any)?.count;
-        barData.push([parseInt(key), aggregatedData[key]["avg"]]);
-    }
+    // Aggregated all the Malic Acid values for each class of Alchohol
+    const aggregatedData: AggData = malicAcidData.reduce((acc: AggData, curr) => {
+        if (acc[curr[0]] !== undefined) {
+            acc[curr[0]].push(curr[1]);
+        } else {
+            acc[curr[0]] = [curr[1]];
+        }
+        return acc
+    }, {})
+
+    // Calculated the average of Malic Acids for each class of Alchohol
+    const barData = Object.entries(aggregatedData).map(([key, value]) => [key, value.reduce((acc, curr) => acc + curr, 0) / value.length])
 
     return barData;
 }
