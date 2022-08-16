@@ -1,5 +1,7 @@
 # Echart App
 
+#### [Visit App](https://github.com/enigmaticmahesh/echart-app.git)
+
 Simple app which uses [Echarts](https://echarts.apache.org/en/index.html) to render 2 Charts:
 
 - BarChart
