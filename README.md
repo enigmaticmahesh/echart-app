@@ -1,7 +1,5 @@
 # Echart App
 
-#### [Visit App](https://flourishing-banoffee-d291d7.netlify.app/)
-
 Simple app which uses [Echarts](https://echarts.apache.org/en/index.html) to render 2 Charts:
 
 - BarChart
